@@ -1,0 +1,32 @@
+{% load static %}
+
+
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+</head>
+<header>
+    <div class="head">
+        <div class="name"><a href="{% url 'table_home' %}">Шляпки</a></div>
+        <div class="lk"><a href="">Личный кабинет</a></div>
+
+    </div>
+</header>
+<body>
+<div class="body">
+{% block content %}
+{% endblock %}
+
+    </div>
+</body>
+<footer>
+    <div class="bottom">
+    </div>
+</footer>
+</html>

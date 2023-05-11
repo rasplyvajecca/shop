@@ -1,0 +1,29 @@
+{% extends 'main/all.html' %}
+{% load static %}
+
+
+{% block title %}
+магазин
+{% endblock %}
+
+{% block content %}
+ {% if table %}
+{% for el in table %}
+<a href="{% url 'about' %}" class="box">
+    {% if el.img %}
+        <img src={{el.img.url}}>
+    {% else %}
+         <img src="{% static 'main/img/no.jpg' %}">
+    {% endif %}
+    <div class="about">
+        <div class="title">{{el.title}}</div>
+        <div class="price">{{el.price}} $</div>
+    </div>
+
+</a>
+{% endfor %}
+    {% else %}
+        <div class="index">Товаров нет</div>
+    {% endif %}
+
+{% endblock %}

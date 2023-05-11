@@ -1,0 +1,140 @@
+
+
+.head{
+box-sizing: border-box;
+
+position: absolute;
+width: 100%;
+height: 70px;
+left: 0px;
+top: 0px;
+
+background: #FFFFFF;
+border-bottom: 1px solid #000000;
+}
+
+.name{
+
+position: absolute;
+
+left: 90px;
+top: 20px;
+font-family: 'trebuchet MS';
+font-style: normal;
+font-weight: 700;
+font-size: 25px;
+text-transform: uppercase;
+
+color: #000000;
+}
+
+
+
+.lk{
+position: absolute;
+right: 90px;
+top: 25px;
+font-family: 'arial';
+font-style: normal;
+font-weight: 500;
+font-size: 15px;
+
+color: #000000;
+}
+
+
+.body{
+padding-bottom:70px;
+margin-top: 160px;
+margin-left:90px;
+margin-right:90px;
+display: grid;
+grid-template-columns: auto auto auto auto;
+
+}
+
+a{
+text-decoration: none;
+color: black;
+}
+
+img{
+width: 248px;
+height: 248px;
+
+}
+
+
+.box{
+
+float:left;
+width: 250px;
+height: 328px;
+margin:0 auto 120px;
+box-sizing: border-box;
+
+border: 1px solid white;
+
+}
+
+.box:hover{
+box-sizing: border-box;
+
+border: 1px solid #000000;
+}
+
+.title{
+font-family: 'arial';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+color: #000000;
+margin-top: 12px;
+}
+
+.price{
+font-family: 'arial';
+font-style: normal;
+font-weight: 600;
+font-size: 15px;
+color: #000000;
+margin-top: 10px;
+}
+
+.about{
+margin-top: 5px;
+text-align:center;
+}
+
+.index{
+
+margin-left:40px;
+
+font-family: 'arial';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+
+
+color: #000000;
+}
+
+.bottom{
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+
+box-sizing: border-box;
+
+background: white;
+border-top: 1px solid #000000;
+}
+
+html{
+  position: relative;
+  min-height: 100%;
+}
+
