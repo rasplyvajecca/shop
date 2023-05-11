@@ -7,5 +7,3 @@ def table_home(request):
     return render(request, 'table/table_home.html', {'table': table})
 
 
-def about(request):
-    return render(request, 'table/about.html')
