@@ -761,4 +761,10 @@ a {
   padding: 0;
 }
 
+.t{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 

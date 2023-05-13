@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
+from main.controllers import feedback
 
 urlpatterns = [
-    path('', views.table_home, name="contact")
+    path('', views.contact, name="contact"),
+    path('feedback/', feedback.create)
     ]
