@@ -31,9 +31,9 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'main',
-    'table',
     'contact',
     'users',
+    'products',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -139,3 +139,5 @@ CSRF_TRUSTED_ORIGINS = ['http://localhost:8000']
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.User'
+
+
