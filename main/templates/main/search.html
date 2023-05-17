@@ -1,0 +1,48 @@
+{% extends 'main/all.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="site-section">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-9 order-2 b">
+
+                <div class="row b">
+
+
+                    {% for i in product %}
+
+
+
+                    <div class="col-sm-6 col-lg-4 mb-4">
+                        <div class="block-4 text-center border">
+                            <figure class="block-4-image">
+                                <a href="/product/{{ i.id }}"><img src={{i.image.url}} alt="Image placeholder"
+                                                           class="img-fluid"></a>
+
+                            </figure>
+                            <div class="block-4-text p-4">
+                                <h3><a href="/product/{{ i.id }}">{{i.name}}</a></h3>
+                                <p class="x font-weight-normal">${{i.price|floatformat:2 }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

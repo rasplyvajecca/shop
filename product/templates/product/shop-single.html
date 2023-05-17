@@ -1,0 +1,28 @@
+{% extends 'main/all.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{prod.image.url}}" alt="Image" class="img-fluid">
+
+            </div>
+            <div class="col-md-6">
+                <h2 class="text-black">{{prod.name}}</h2>
+                <p class="mb-5">{{prod.about}}</p>
+                <p><strong class="text-primary h4">${{prod.price|floatformat:2 }}</strong></p>
+                <p><a href="{% url 'cart_add' prod.id %}" class="buy-now btn btn-sm btn-primary ">Add To Cart</a></p>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

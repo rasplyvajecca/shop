@@ -1,0 +1,104 @@
+{% extends 'main/all.html' %}
+{% load static %}
+{% load cart_tag %}
+
+{% block content %}
+
+    <div class="site-section">
+      <div class="container">
+        <div class="row mb-5">
+          <form class="col-md-12" method="post">
+            <div class="site-blocks-table">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="product-thumbnail">Image</th>
+                    <th class="product-name">Product</th>
+                    <th class="product-price">Price</th>
+                    <th class="product-quantity">Quantity</th>
+                    <th class="product-total">Total</th>
+                    <th class="product-remove">Remove</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for key,value in request.session.cart.items %}
+                  <tr>
+                    <td class="product-thumbnail">
+                      <img src="{{value.image}}" alt="Image" class="img-fluid">
+                    </td>
+                    <td class="product-name">
+                      <h2 class="h5 text-black">{{value.name}}</h2>
+                    </td>
+                    <td>${{value.price|floatformat:2 }}</td>
+                    <td class="cart_quantity">
+                      <div class="cart_quantity_button mb-3 a">
+                        {% if value.quantity == 1 %}
+                         <a href="{% url 'item_clear' key %}" class="cart_quantity_down"> &minus;</a>
+                        {% else %}
+                         <a href="{% url 'item_decrement' value.product_id %}" class="cart_quantity_down"> &minus;</a>
+                        {% endif %}
+                        <input type="text" class="cart-plus-minus-box text-center" value="{{value.quantity}}" name="qtybutton"  style="max-width: 80px;">
+                         <a href="{% url 'item_increment' value.product_id %}" class="cart_quantity_up">&plus;</a>
+                      </div>
+
+                    </td>
+                    <td>${{ value.price|multiply:value.quantity|floatformat:2 }}</td>
+                    <td><a href="{% url 'item_clear' key %}" class="btn btn-primary btn-sm">X</a></td>
+                  </tr>
+
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </form>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row mb-5">
+              <div class="col-md-6 mb-3 mb-md-0">
+                <a href="{% url 'cart_clear' %}" class="btn btn-primary btn-sm btn-block">Clear Cart</a>
+              </div>
+              <div class="col-md-6">
+                <a href="{% url 'catalog' %}" class="btn btn-outline-primary btn-sm btn-block">Continue Shopping</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 pl-5">
+            <div class="row justify-content-end">
+              <div class="col-md-7">
+                <div class="row">
+                  <div class="col-md-12 text-right border-bottom mb-5">
+                    <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <span class="text-black">Subtotal</span>
+                  </div>
+                  <div class="col-md-6 text-right">
+                    <strong class="text-black">${{cart_total_amount|floatformat:2}}</strong>
+                  </div>
+                </div>
+                <div class="row mb-5">
+                  <div class="col-md-6">
+                    <span class="text-black">Total</span>
+                  </div>
+                  <div class="col-md-6 text-right">
+                    <strong class="text-black">${{cart_total_amount|floatformat:2}}</strong>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <a href="{% url 'checkout' %}" class="btn btn-primary btn-lg py-3 btn-block">Proceed To Checkout</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   {% endblock %}
